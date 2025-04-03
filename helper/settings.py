@@ -18,8 +18,7 @@ if os.path.isfile('env.py'):
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-if os.path.exists('env.py'):
-    import env
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -52,6 +51,7 @@ INSTALLED_APPS = [
 
     # App
     'home',
+    'machines',
 
     # Others 
     'crispy_forms',
@@ -120,7 +120,7 @@ WSGI_APPLICATION = 'helper.wsgi.application'
 #        'ENGINE': 'django.db.backends.sqlite3',
 #        'NAME': BASE_DIR / 'db.sqlite3',
 #    }
-#}
+# }
 
 DATABASES = {
     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
