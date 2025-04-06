@@ -1,6 +1,8 @@
 /* Google font */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
+
+
 /* header */
 :root {
     /** Fonts */
@@ -36,7 +38,7 @@ h1, h2, h3, h4, h5, h6 {
 
 main {
     flex: 1 0 auto;
-    background-color: var(--white);
+    background-color: var(--orange);
 }
 
 /* Footer */
@@ -85,3 +87,60 @@ img.logo {
     box-shadow: var(--smal-box-shadow);
     border-radius: 5px;
 }
+
+/* hompage */
+
+.image-container img {
+    position: relative;
+    height: 30%;
+    width: 100%;
+    max-height: 25rem;
+    object-fit: cover;
+    left: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.container-fluid {
+    position: relative;
+    text-align: center;
+    z-index: 1;
+    background-color: var(--orange);
+    margin-bottom: 0;
+}
+
+.washer img{
+    position: relative;
+    height: 40%;
+    width: 30%;
+    max-height: 30rem;
+    align-self: center;
+}
+
+.washer p{
+    margin-top: 5px;
+    font-style: italic;
+}
+
+.heading {
+    text-transform: uppercase;
+    font-size: 30px;
+}
+
+.message {
+    font-style: oblique;
+    font-size: 20px;
+}
+
+.intro {
+    font-size: 18px;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.obj p{
+    font-size: 18px;
+    padding-left: 8%;
+    padding-right: 8%;
+}
+

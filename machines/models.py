@@ -7,7 +7,7 @@ STATUS = ((0, "Taken"), (1, "Available"))
 # Create your models here.
 class Machines(models.Model):
     """
-    Describes the machines and our sevices 
+    Describes the machines and our sevices
     """
     machine_type = models.CharField(max_length=200)
     specification = models.TextField()

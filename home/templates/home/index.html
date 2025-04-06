@@ -1,1 +1,42 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- homepage.html start here -->
+
+<!-- hero image for homepage -->
+ <div class="container-fluid">
+    <div class="image-container">
+        <img src="{% static '/images/hero.webp' %}" alt="Laundry Shopfloor ">
+    </div>
+    <div>
+        <h2 class="heading">Hello There, You Are Welcome To The Helper's Laundry Shop</h2>
+        <p class="message"> With Helper's Laundry we say rest your hands and let the machine do the helping job</p>
+    </div>
+    <br>
+    <div class="intro">
+        <p>
+            Are you tired of doing your laundry with your hands every weekend? And you do not know what to do? 
+            Helper's Laundry is here to take off that burden.
+            We provide customer's with morden statte of the art washine machine with a welcoming staff and environment.
+            as you do your laundry with our machines.
+        </p>
+    </div>
+    <div class="obj">
+        <h2>OBJECTIVE</h2>
+        <p>
+            At Helper's Laundry, our main objective is to make your laundry works easy for you.
+            We have machine with varities of specifications to make your laundry session the best.
+            We also offer affordable charges so that with you can also do your laundry.
+        </p>
+    </div>
+    <div class="washer">
+        <img src="{% static '/images/img1.webp' %}" alt="Wash Now">
+        <p>
+            Do you want to use a machine like this for laundry, then visit our shop now.
+            Helper's Laundry, we are here to help you.
+        </p>
+    </div>
+ </div>
+
+{% endblock %}
