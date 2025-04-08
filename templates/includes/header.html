@@ -20,7 +20,7 @@
                 <a class="nav-link" href="#">Bookings</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Machines</a>
+                <a class="nav-link {% if url_name == 'machines' %}active{% endif %}" aria-current="page" href="{% url 'machines' %}">Machines</a>
               </li>
               {% if request.user.is_authenticated %}
               <li class="nav-item">
@@ -31,7 +31,7 @@
                 <a class="nav-link {% if url_name == 'accounts_signup' %}active{% endif %}" href="/accounts/signup/">Register</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link {% if url_name == 'accounts_signout' %}active{% endif %}" href="/accounts/login/">Signout</a>
+                <a class="nav-link {% if url_name == 'accounts_login' %}active{% endif %}" href="/accounts/login/">Login</a>
               </li>
               {% endif %}
             </ul>

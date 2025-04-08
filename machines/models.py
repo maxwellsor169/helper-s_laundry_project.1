@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django_resized import ResizedImageField
+
 
 STATUS = ((0, "Taken"), (1, "Available"))
 
@@ -15,6 +17,15 @@ class Machines(models.Model):
     duration = models.CharField(max_length=50)
     price = models.CharField(max_length=50)
     status = models.IntegerField(choices=STATUS, default=0)
+    image = ResizedImageField(
+        size=[400, None],
+        quality=75,
+        upload_to="machines/",
+        force_format="WEBP",
+        blank=False,
+        null=3,
+    )
+    image_alt = models.CharField(max_length=100, null=3, blank=False)
 
 
 class Meta:

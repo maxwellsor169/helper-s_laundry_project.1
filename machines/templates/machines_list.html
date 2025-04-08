@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="machines-login">
+    {% if user.is_authenticated %}
+    <p class="text m-3"></p>
+    {% else %}
+    <a class="auth-btn {% if request.path == login_url %}active{% endif %}" 
+    href="{% url 'account_login' %}" aria-current="page">Login to book a machine</a>
+    {% endif %}
+</div>
+<div class="container ">
+
+    <div class="row">
+        <!-- Machine list -->
+
+        <div class="col-12 mt-3 left">
+            <div class="row">
+                {% for machine in machines %}
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="image-flash">
+                                <h2 class="types">{{ machine.type }}</h2>
+                            </div>
+                            <div class="image-container">
+                                <img class="card-image" src="{% if machine.type == 'Washer' %} 
+                                           {% static '/images/Washer.webp' %}
+                                        {% elif machine.type == 'Washer & Dryer' %}
+                                           {% static '/images/Washer & Dryer.webp' %}
+                                        {% else %}
+                                           {% static '/images/50kg & Above.webp' %}
+                                        {% endif %}"
+                                    alt="{% if machine.type == 'Washer' %}
+                                          This machine does only washing
+                                        {% elif machine.type == 'Washer & Dryer' %}
+                                          This machine performs both washing and drying
+                                        {% else %}
+                                          This machine is for washing heavy materials 50kg & above
+                                        {% endif %}">           
+                            </div>
+                        </div>
+                        <h3 class="card-title">{{ machine.type }}</h3>
+                        <hr>
+                        <p class="card-text">{{ machine.specification }}</p>
+                        <hr>
+                        <p class="card-text">{{ machine.duration }} - {{ machine.price }}</em>
+                        </p>
+                        <a href="" class="btn btn-md active book-now" aria-pressed="true" 
+                           role="button">Book now</a>
+                    </div>
+                </div>
+            </div>
+            {% if forloop.counter|divisibleby:2 %}
+        </div>
+        <div class="row">
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    {% if is_paginated %}
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+            <li>
+                <a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; Previous</a>
+            </li>
+            {% endif %}
+            {% if page_obj.has_next %}
+            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> More &raquo;</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
+</div>
+{% endblock %}
