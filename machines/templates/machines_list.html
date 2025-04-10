@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 {% load static %}
 
 {% block content %}
@@ -10,7 +10,10 @@
     href="{% url 'account_login' %}" aria-current="page">Login to book a machine</a>
     {% endif %}
 </div>
-<div class="container ">
+<div class="container-fluid">
+    {% if is_paginated %}
+
+    {% endif %}
 
     <div class="row">
         <!-- Machine list -->
@@ -18,7 +21,7 @@
         <div class="col-12 mt-3 left">
             <div class="row">
                 {% for machine in machines %}
-                <div class="col-md-4">
+                <div class="col-md-4 bod">
                     <div class="card mb-4">
                         <div class="card-body">
                             <div class="image-flash">
@@ -26,11 +29,11 @@
                             </div>
                             <div class="image-container">
                                 <img class="card-image" src="{% if machine.type == 'Washer' %} 
-                                           {% static '/images/Washer.webp' %}
+                                           {% static 'images/Washer.webp' %}
                                         {% elif machine.type == 'Washer & Dryer' %}
-                                           {% static '/images/Washer & Dryer.webp' %}
+                                           {% static 'images/washer-dryer.webp' %}
                                         {% else %}
-                                           {% static '/images/50kg & Above.webp' %}
+                                           {% static 'images/50kg -above.webp' %}
                                         {% endif %}"
                                     alt="{% if machine.type == 'Washer' %}
                                           This machine does only washing
@@ -52,26 +55,12 @@
                     </div>
                 </div>
             </div>
-            {% if forloop.counter|divisibleby:2 %}
+            {% if forloop.counter|divisibleby:1 %}
         </div>
         <div class="row">
             {% endif %}
             {% endfor %}
         </div>
     </div>
-    {% if is_paginated %}
-    <nav aria-label="Page navigation">
-        <ul class="pagination justify-content-center">
-            {% if page_obj.has_previous %}
-            <li>
-                <a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; Previous</a>
-            </li>
-            {% endif %}
-            {% if page_obj.has_next %}
-            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> More &raquo;</a></li>
-            {% endif %}
-        </ul>
-    </nav>
-    {% endif %}
 </div>
 {% endblock %}

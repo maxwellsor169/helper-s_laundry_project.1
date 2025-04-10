@@ -106,7 +106,7 @@ img.logo {
     text-align: center;
     z-index: 1;
     background-color: var(--orange);
-    margin-bottom: 0;
+    margin-bottom: 20px;
 }
 
 .washer img{
@@ -148,7 +148,7 @@ img.logo {
 /* Machines */
 .machines-login {
     position: absolute;
-    margin-right: 16px;
+    margin-right: 15px;
     right: 0;
     margin-bottom: 20px;
     z-index: 10;
@@ -167,7 +167,14 @@ img.logo {
     text-align: center;
     background-color: rgb(248, 243, 238);
     padding: 0 0 1px 0;
+    position: center;
 }
 .book-now {
     background-color: rgb(240, 196, 102);
+}
+
+.row {
+    display: grid;
+    place-items: center; 
+       
 }
