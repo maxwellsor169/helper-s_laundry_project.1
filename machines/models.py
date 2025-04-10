@@ -29,6 +29,7 @@ class Machines(models.Model):
 
 
 class Meta:
+    db_table = 'machines.machine_type'
     ordering = ["machine_type"]
 
 
