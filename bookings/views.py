@@ -7,7 +7,6 @@ from django.http import HttpResponseRedirect
 from django.http import JsonResponse
 from datetime import date
 from .models import Appointment
-from .forms import AppointmentForm
 from machines.models import Machines
 
 # Create your views here.
