@@ -181,12 +181,6 @@ img.logo {
 
 /* book_now.html */
 
-.container {
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
-    height: 100%;
-}
 
 .booking-form {
     background-color: rgb(248, 243, 238);
