@@ -34,4 +34,4 @@ class Meta:
 
 
 def __str__(self):
-    return f"{self.machine_type} : {self.specification} : {self.machine_no}"
+    return f"{self.machine_type} : {self.specification}"
