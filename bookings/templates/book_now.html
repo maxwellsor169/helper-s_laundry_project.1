@@ -37,5 +37,15 @@
 
     </div>
  </div>
-
+ <script>
+    flatpickr("#datepicker", {
+        minDate: "today",
+        dateFormat: "Y-m-d",
+        disable: [
+            function (date) {
+                return date.getDay() === 0; // Disable Sundays
+            }
+        ]
+    });
+</script>
 {% endblock %}

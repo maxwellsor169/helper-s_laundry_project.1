@@ -7,21 +7,24 @@ from django.http import HttpResponseRedirect
 from django.http import JsonResponse
 from datetime import date
 from .models import Appointment
+from .forms import AppointmentForm
 from machines.models import Machines
+
+
 
 # Create your views here.
 @login_required
 def book_appointment(request):
     """
     Allows a logged-in user to book an appointment.
-    Displays instance of :model: `book_now.Appointment`.
-    Displays instance of :form: `book_now.AppointmentForm`.
+    Displays instance of :model: `bookings.Appointment`.
+    Displays instance of :form: `bookings.AppointmentForm`.
     **Context**
-    ``book_now``
-        The most recent instance of :model: `book_now.Appointment`.
-        The most recent instance of :form: `book_now.AppointmentForm`.
+    ``bookings``
+        The most recent instance of :model: `bookings.Appointment`.
+        The most recent instance of :form: `bookings.AppointmentForm`.
     **Template**
-    :template:`book_now/book_now.html
+    :template:`bookings/book_now.html
     """
     appointment_form = AppointmentForm(request.POST or None)
 
