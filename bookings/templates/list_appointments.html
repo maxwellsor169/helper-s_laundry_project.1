@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <div class="container">
+        <div class="col-md-12 mb-6 mt-6 list-appointments">
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li class="alert {{ message.tags }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            <h3>Helper's Laundry is happy to see you.</h3>
+            <br>
+            <div class="change-app">
+                {% if appointments %}
+                <h4>Please see a list of your appointments below.</h4>
+                <br>
+                {% for appointment in appointments %}
+                <li>Booking ID: {{ appointment.booking_id }} - {{ appointment.machine_selected }} on {{ appointment.appointment_date }}
+                    at {{ appointment.appointment_time }}</li>
+                <button type="button" class="btn cancel-btn" data-bs-toggle="modal"
+                data-bs-target="#confirmCancelModal{{ appointment.booking_id }}">Cancel Appointment</button> <a
+                href="{% url 'edit_appointment' appointment.booking_id %}" class="btn update-btn">Update Appointment</a>
+                <hr>
+                <br> 
+                <div class="modal fade" id="confirmCancelModal{{ appointment.booking_id }}" tabindex="-1"
+                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Confirm Cancellation</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Are you sure you want to cancel your appointment on {{ appointment.appointment_date }}
+                                at {{ appointment.appointment_time }}?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No, Go
+                                    Back</button>
+                                <form method="post">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="booking_id" value="{{ appointment.booking_id }}">
+                                    <button type="submit" class="btn btn-danger">Yes, Cancel</button>
+                                </form>    
+                            </div>
+                        </div>
+                    </div>
+                </div>   
+                {% endfor %}
+                {% else %}
+                    <p>Please, you have no appointment with us. Ready to book your first laundry session?</p>
+
+                    <a href="{% url 'book_appointment' %}" class="btn book-new" role="button" aria-pressed="true">Book Now</a>
+                {% endif %}
+            </div>
+            {% if appointments %}
+            <p>Ready to book your next treatment?</p>
+            <a href="{% url 'book_appointment' %}" class="btn book-new" role="button" aria-pressed="true">Book New
+                Appointment</a>
+            {% endif %}
+        </div>
+        <br>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    </div>
+{% endblock %}
