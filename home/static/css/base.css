@@ -90,6 +90,14 @@ img.logo {
 
 /* hompage */
 
+.container-fluid {
+    position: relative;
+    text-align: center;
+    z-index: 1;
+    background-color: var(--orange);
+    margin-bottom: 20px;
+}
+
 .image-container img {
     position: relative;
     height: 30%;
@@ -99,14 +107,6 @@ img.logo {
     left: 0;
     margin: 0;
     padding: 0;
-}
-
-.container-fluid {
-    position: relative;
-    text-align: center;
-    z-index: 1;
-    background-color: var(--orange);
-    margin-bottom: 20px;
 }
 
 .washer img{
