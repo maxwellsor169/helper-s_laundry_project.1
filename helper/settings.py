@@ -9,8 +9,8 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-import os
 from pathlib import Path
+import os
 import dj_database_url
 if os.path.isfile('env.py'):
     import env
@@ -136,6 +136,13 @@ DATABASES = {
     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://*.codeinstitute-ide.net/",
+    "https://*.herokuapp.com",
+]
+
+CSRF_COOKIE_SECURE = True  # Ensure the CSRF cookie is sent over HTTPS
+CSRF_COOKIE_HTTPONLY = True  # Prevent access to CSRF cookie via JavaScript
 
 
 # Password validation
