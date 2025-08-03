@@ -36,7 +36,7 @@ h1, h2, h3, h4, h5, h6 {
 
 main {
     flex: 1 0 auto;
-    background-color: var(--white);
+    background-color: var(--orange);
 }
 
 .card-image {
@@ -101,3 +101,36 @@ img.logo {
     box-shadow: var(--smal-box-shadow);
     border-radius: 5px;
 }
+
+/* hompage */
+
+.container-fluid {
+    position: relative;
+    text-align: center;
+    z-index: 1;
+    background-color: var(--orange);
+    margin-bottom: 20px;
+}
+
+.image-container img {
+    position: relative;
+    height: 30%;
+    width: 100%;
+    max-height: 25rem;
+    object-fit: cover;
+    left: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.washer img{
+    position: relative;
+    height: 40%;
+    width: 30%;
+    max-height: 30rem;
+    align-self: center;
+}
+
+
+
+
