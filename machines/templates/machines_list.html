@@ -19,19 +19,19 @@
         <div class="col-12 mt-3 left">
             <div class="row">
                 {% for machine in machines %}
-                    <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                    <div class="col-md-4">
                         <div class="card mb-4">
                             <div class="card-body">
                                 <div class="image-flash">
                                     <h2 class="types">{{ machine_type }}</h2>
                                 </div>
-                                <div class="image-container-1">
+                                <div class="image-container">
                                     <img class="card-image" src="{% if machine_type == 'Big-washer' %}
-                                    {% static 'images/50kg -above.webp' %}
+                                    {% static 'images/50kg-above.webp' %}
                                     {% elif machine_type == 'Washer-only' %}
                                     {% static 'images/Washer.webp' %}
                                     {% else %}
-                                    {% static 'images/washer-dryer.webp' %}
+                                    {% static 'images/Washer & Dryer.webp' %}
                                     {% endif %}">          
                                 </div>
                             </div>
